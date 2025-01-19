@@ -1,0 +1,53 @@
+# change window focus within space
+alt - down : yabai -m window --focus south
+alt - up : yabai -m window --focus north
+alt - left : yabai -m window --focus west
+alt - right : yabai -m window --focus east
+
+# swap windows
+shift + alt - down : yabai -m window --swap south
+shift + alt - up : yabai -m window --swap north
+shift + alt - left : yabai -m window --swap west
+shift + alt - right : yabai -m window --swap east
+
+# move window and split
+#ctrl + alt - j : yabai -m window --warp south
+#ctrl + alt - k : yabai -m window --warp north
+#ctrl + alt - h : yabai -m window --warp west
+#ctrl + alt - l : yabai -m window --warp east
+
+#move window to prev and next space
+shift + alt - p : yabai -m window --space prev;
+shift + alt - n : yabai -m window --space next;
+
+
+alt - q : yabai -m space --focus Q;
+alt - w : yabai -m space --focus W;
+alt - e : yabai -m space --focus E;
+alt - r : yabai -m space --focus R;
+alt - a : yabai -m space --focus A;
+alt - s : yabai -m space --focus S;
+alt - d : yabai -m space --focus D;
+
+
+# move window to space #
+shift + alt - q : yabai -m window --space Q;
+shift + alt - w : yabai -m window --space W;
+shift + alt - e : yabai -m window --space E;
+shift + alt - r : yabai -m window --space R;
+shift + alt - a : yabai -m window --space A;
+shift + alt - s : yabai -m window --space S;
+shift + alt - d : yabai -m window --space D;
+
+
+# move window to display left and right
+#shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
+#shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+
+alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle float
+alt - g : yabai -m window --toggle sticky
+
+#change focus between external displays (left and right)
+alt - k: yabai -m display --focus west
+alt - l: yabai -m display --focus east
