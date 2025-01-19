@@ -21,23 +21,23 @@ shift + alt - p : yabai -m window --space prev;
 shift + alt - n : yabai -m window --space next;
 
 
-alt - q : yabai -m space --focus Q;
-alt - w : yabai -m space --focus W;
-alt - e : yabai -m space --focus E;
-alt - r : yabai -m space --focus R;
-alt - a : yabai -m space --focus A;
-alt - s : yabai -m space --focus S;
-alt - d : yabai -m space --focus D;
+alt - q : yabai -m space --focus 1;
+alt - w : yabai -m space --focus 2;
+alt - e : yabai -m space --focus 3;
+alt - r : yabai -m space --focus 4;
+alt - a : yabai -m space --focus 5;
+alt - s : yabai -m space --focus 6;
+alt - d : yabai -m space --focus 7;
+alt - t : yabai -m space --focus next || yabai -m space --focus first
 
-
-# move window to space #
-shift + alt - q : yabai -m window --space Q;
-shift + alt - w : yabai -m window --space W;
-shift + alt - e : yabai -m window --space E;
-shift + alt - r : yabai -m window --space R;
-shift + alt - a : yabai -m window --space A;
-shift + alt - s : yabai -m window --space S;
-shift + alt - d : yabai -m window --space D;
+# move window to space
+shift + alt - q : yabai -m window --space 1;
+shift + alt - w : yabai -m window --space 2;
+shift + alt - e : yabai -m window --space 3;
+shift + alt - r : yabai -m window --space 4;
+shift + alt - a : yabai -m window --space 5;
+shift + alt - s : yabai -m window --space 6;
+shift + alt - d : yabai -m window --space 7;
 
 
 # move window to display left and right
@@ -49,5 +49,5 @@ shift + alt - f : yabai -m window --toggle float
 alt - g : yabai -m window --toggle sticky
 
 #change focus between external displays (left and right)
-alt - k: yabai -m display --focus west
-alt - l: yabai -m display --focus east
+#alt - k: yabai -m display --focus west
+#alt - l: yabai -m display --focus east
