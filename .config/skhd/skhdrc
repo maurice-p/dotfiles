@@ -48,6 +48,9 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 shift + alt - f : yabai -m window --toggle float
 alt - g : yabai -m window --toggle sticky
 
+
+alt - return : open -n -a "Terminal"
+
 #change focus between external displays (left and right)
 #alt - k: yabai -m display --focus west
 #alt - l: yabai -m display --focus east
