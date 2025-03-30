@@ -23,7 +23,7 @@ default=(
   padding_left=5
   padding_right=5
   icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+  label.font="Hack Nerd Font:Bold:10.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -38,24 +38,46 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-SPACE_ICONS=("Q" "W" "E" "R" "T" "A" "S" "D" "F" "G")
+SPACE_ICONS=("Q [Main]" "W [Code]" "E [Remote]" "R [GIT]" "T [PW]" "A [Main]" "S [Alt]" "D [Note]" "F [Roon]" "G [Disc]")
 
 sketchybar --add event aerospace_workspace_change
 
 for sid in $(aerospace list-workspaces --all); do
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-        background.color=0x44ffffff \
-        background.corner_radius=5 \
-        background.height=20 \
-        background.drawing=off \
-        label="${SPACE_ICONS[$sid]}" \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+   sketchybar --add item space.$sid left \
+       --subscribe space.$sid aerospace_workspace_change \
+       --set space.$sid \
+       background.color=0x44ffffff \
+       background.corner_radius=5 \
+       background.height=20 \
+       background.drawing=off \
+       label="${SPACE_ICONS[$sid]}" \
+       click_script="aerospace workspace $sid" \
+       script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
 
 #source "$ITEM_DIR/spaces.sh"
+
+# declare -A monitors
+# while IFS=" " read -r monitor_id display_id; do
+#   monitors["$monitor_id"]="$display_id"
+# done < <(aerospace list-monitors --format '%{monitor-id} %{monitor-appkit-nsscreen-screens-id}')
+
+# for monitor_id in "${monitors[@]}"; do
+#   for sid in $(aerospace list-workspaces --monitor $monitor_id); do
+#     sketchybar --add item space.$sid left \
+#       --subscribe space.$sid aerospace_workspace_change \
+#       --set space.$sid \
+#             display=${monitors["$monitor_id"]}\
+#             background.color=0x44ffffff \
+#             background.corner_radius=5 \
+#             background.height=20 \
+#             background.drawing=off \
+#             label="$sid" \
+#             click_script="aerospace workspace $sid" \
+#             script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+#   done
+# done
+
 
 
 ##### Adding Left Items #####

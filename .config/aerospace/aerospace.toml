@@ -165,30 +165,48 @@ run = 'layout floating'
 ## move to roon to workspace
 # check with: -->  aerospace list-windows --monitor all --format %{app-bundle-id}
 
-
+# W (VSCode)
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = ['move-node-to-workspace 1']
 
+# E (Remote)
 [[on-window-detected]]
-if.app-id = 'tv.jellyfin.player'
+if.app-id = 'com.microsoft.rdc.macos'
 run = ['move-node-to-workspace 2']
 
+#[[on-window-detected]]
+#if.app-id = 'tv.jellyfin.player'
+#run = ['move-node-to-workspace 2']
+
+# R (SmartGit)
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
+if.app-id = 'com.syntevo.smartgit'
 run = ['move-node-to-workspace 3']
 
+# T (KeePassXC)
 [[on-window-detected]]
 if.app-id = 'org.keepassxc.keepassxc'
 run = ['move-node-to-workspace 4']
 
+# D (Obsidian)
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace 7']
+
+# F (Roon)
 [[on-window-detected]]
 if.app-id = 'com.roon.Roon'
 run = ['move-node-to-workspace 8']
 
+# G (Discord)
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = ['move-node-to-workspace 9']
+
+
+
+
 
 
 # com.fredrikburmester.streamyfin
