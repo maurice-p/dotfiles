@@ -123,8 +123,8 @@ ctrl-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # fullscreen
 ctrl-cmd-v  = 'fullscreen'
-#ctrl-cmd-shift-v = 'layout floating tiling'
-ctrl-cmd-shift-v = 'macos-native-fullscreen'
+ctrl-cmd-shift-v = 'layout floating tiling'
+#ctrl-cmd-shift-v = 'macos-native-fullscreen'
 
 # service mode
 ctrl-cmd-c = 'mode service'
