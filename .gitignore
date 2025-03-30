@@ -12,7 +12,7 @@
 # Weitere Ausschlüsse
 .DS_Store
 .vscode/
-.oh-my_zsh/
+.oh-my-zsh/
 
 # Ignoriere standardmäßige Benutzerverzeichnisse
 Desktop
