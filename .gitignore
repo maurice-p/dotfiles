@@ -1,9 +1,19 @@
+# Ignoriere alles
 *
-!/**/
+
+# Ausnahme für alle Unterverzeichnisse und versteckte Dateien
+!*/
 !.*
+
+# Nicht ignorierte Dateien und Ordner
+!.config/
+
+# Weitere Ausschlüsse
 .DS_Store
 .vscode/
 .oh-my_zsh/
+
+# Ignoriere standardmäßige Benutzerverzeichnisse
 Desktop
 Documents
 Downloads
