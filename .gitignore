@@ -2,7 +2,7 @@
 *
 
 # Ausnahme für alle Unterverzeichnisse und versteckte Dateien
-!*/
+!/**/
 !.*
 
 # Nicht ignorierte Dateien und Ordner
