@@ -1,26 +1,23 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
-
-# You can use it to add commands that run after login to macOS user session.
-# 'start-at-login' needs to be 'true' for 'after-login-command' to work
-# Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
 
-# You can use it to add commands that run after AeroSpace startup.
-# 'after-startup-command' is run after 'after-login-command'
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [ 
+                          'exec-and-forget sketchybar',
+                          'exec-and-forget borders active_color=0xffb4b5b6 inactive_color=0xff494d64 width=5.0'
+                        ]
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
-# The 'accordion-padding' specifies the size of accordion padding
-# You can set 0 to disable the padding feature
 accordion-padding = 30
 
 # Possible values: tiles|accordion
@@ -32,10 +29,6 @@ default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
 # Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
-# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
-# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-# Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = "move-mouse window-lazy-center"
 
@@ -45,7 +38,6 @@ on-focus-changed = "move-mouse window-lazy-center"
 automatically-unhide-macos-hidden-apps = false
 
 # Possible values: (qwerty|dvorak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
 preset = 'qwerty'
 
@@ -57,127 +49,146 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 5
-inner.vertical =   5
+inner.horizontal = 10
+inner.vertical =   10
 outer.left =       5
 outer.bottom =     5
-outer.top =        5
+outer.top =        30
 outer.right =      5
 
-# 'main' binding mode declaration
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# 'main' binding mode must be always presented
-# Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
+ctrl-cmd-1 = 'close'
+ctrl-cmd-2 = 'layout tiles horizontal'
+ctrl-cmd-3 = 'layout tiles vertical'
+ctrl-cmd-4 = 'layout accordion horizontal vertical'
 
-# All possible keys:
-# - Letters.        a, b, c, ..., z
-# - Numbers.        0, 1, 2, ..., 9
-# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-# - F-keys.         f1, f2, ..., f20
-# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon, backtick,
-#                   leftSquareBracket, rightSquareBracket, space, enter, esc, backspace, tab
-# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-#                   keypadMinus, keypadMultiply, keypadPlus
-# - Arrows.         left, down, up, right
+# change focus
+alt-q = 'focus left'
+alt-w = 'focus down'
+alt-e = 'focus up'
+alt-r = 'focus right'
 
-# All possible modifiers: cmd, alt, ctrl, shift
+ctrl-cmd-left = 'focus left'
+ctrl-cmd-down = 'focus down'
+ctrl-cmd-up = 'focus up'
+ctrl-cmd-right = 'focus right'
 
-# All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+# move windows
+alt-a = 'move left'
+alt-s = 'move down'
+alt-d = 'move up'
+alt-f = 'move right'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-# alt-enter = '''exec-and-forget osascript -e '
-# tell application "Terminal"
-#     do script
-#     activate
-# end tell'
-# '''
+ctrl-cmd-shift-left = 'move left'
+ctrl-cmd-shift-down = 'move down'
+ctrl-cmd-shift-up = 'move up'
+ctrl-cmd-shift-right = 'move right'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-1 = 'layout tiles horizontal vertical'
-alt-2 = 'layout accordion horizontal vertical'
+# resize
+ctrl-cmd-z = 'resize smart -80'
+ctrl-cmd-x = 'resize smart +80'
+alt-z = 'resize smart -80'
+alt-x = 'resize smart +80'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-left = 'focus left'
-alt-down = 'focus down'
-alt-up = 'focus up'
-alt-right = 'focus right'
+# workspaces
+ctrl-cmd-q = 'workspace 0'
+ctrl-cmd-w = 'workspace 1'
+ctrl-cmd-e = 'workspace 2'
+ctrl-cmd-r = 'workspace 3'
+ctrl-cmd-t = 'workspace 4'
+ctrl-cmd-a = 'workspace 5'
+ctrl-cmd-s = 'workspace 6'
+ctrl-cmd-d = 'workspace 7'
+ctrl-cmd-f = 'workspace 8'
+ctrl-cmd-g = 'workspace 9'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-left = 'move left'
-alt-shift-down = 'move down'
-alt-shift-up = 'move up'
-alt-shift-right = 'move right'
+# move workspace
+ctrl-cmd-shift-q = 'move-node-to-workspace 0'
+ctrl-cmd-shift-w = 'move-node-to-workspace 1'
+ctrl-cmd-shift-e = 'move-node-to-workspace 2'
+ctrl-cmd-shift-r = 'move-node-to-workspace 3'
+ctrl-cmd-shift-t = 'move-node-to-workspace 4'
+ctrl-cmd-shift-a = 'move-node-to-workspace 5'
+ctrl-cmd-shift-s = 'move-node-to-workspace 6'
+ctrl-cmd-shift-d = 'move-node-to-workspace 7'
+ctrl-cmd-shift-f = 'move-node-to-workspace 8'
+ctrl-cmd-shift-g = 'move-node-to-workspace 9'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+# open terminal
+ctrl-cmd-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-q = 'workspace Q'
-alt-w = 'workspace W'
-alt-e = 'workspace E'
-alt-r = 'workspace R'
-alt-a = 'workspace A'
-alt-s = 'workspace S'
-alt-d = 'workspace D'
+# alt-tab
+ctrl-cmd-tab = 'workspace-back-and-forth'
+ctrl-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+# fullscreen
+ctrl-cmd-v  = 'fullscreen'
+#ctrl-cmd-shift-v = 'layout floating tiling'
+ctrl-cmd-shift-v = 'macos-native-fullscreen'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-r = 'move-node-to-workspace R'
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-s = 'move-node-to-workspace S'
-alt-shift-d = 'move-node-to-workspace D'
+# service mode
+ctrl-cmd-c = 'mode service'
 
-alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
-
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-# alt-tab = 'monitor-back-and-forth'
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-
-alt-f  = 'fullscreen'
-alt-shift-f = 'layout floating tiling'
-#alt-shift-f = 'macos-native-fullscreen'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
-
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# service bindings
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
+#f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+#backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
 
-#alt-shift-h = ['join-with left', 'mode main']
-#alt-shift-j = ['join-with down', 'mode main']
-#alt-shift-k = ['join-with up', 'mode main']
-#alt-shift-l = ['join-with right', 'mode main']
+a = ['join-with left', 'mode main']
+s = ['join-with down', 'mode main']
+d = ['join-with up', 'mode main']
+f = ['join-with right', 'mode main']
 
 
 [workspace-to-monitor-force-assignment]
-    Q = 'main'
-    W = 'main'
-    E = 'main'
-    R = 'main'
-    A = 'secondary'
-    S = 'secondary'
-    D = 'secondary'
+    0 = 'main'
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'secondary'
+    6 = 'secondary'
+    7 = 'secondary'
+    8 = 'secondary'
+    9 = 'secondary'
 
-#after-startup-command = [
-#    # JankyBorders has a built-in detection of already running process,
-#    # so it won't be run twice on AeroSpace restart
-#    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
-#]
+# windows that should float
+[[on-window-detected]]
+if.app-id = 'com.apple.AppStore'
+run = 'layout floating'
+
+## move to roon to workspace
+# check with: -->  aerospace list-windows --monitor all --format %{app-bundle-id}
 
 
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'tv.jellyfin.player'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'org.keepassxc.keepassxc'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'com.roon.Roon'
+run = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['move-node-to-workspace 9']
+
+
+# com.fredrikburmester.streamyfin
