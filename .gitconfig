@@ -1,3 +1,15 @@
 [user]
 	name = maurice-p
 	email = maurice.preussner@gmail.com
+[commit]
+	gpgSign = false
+[pull]
+	rebase = false
+[gui]
+	pruneduringfetch = true
+[smartgit "submodule"]
+	fetchalways = false
+	update = true
+	initializenew = true
+[push]
+	recurseSubmodules = check
