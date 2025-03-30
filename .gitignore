@@ -3,6 +3,7 @@
 !.*
 .DS_Store
 .vscode/
+.oh-my_zsh/
 Desktop
 Documents
 Downloads
