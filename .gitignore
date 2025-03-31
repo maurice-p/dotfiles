@@ -12,7 +12,11 @@
 !.config/**
 
 # exception for VS Code settings
-!Library/Application Support/Code/User/settings.json
+!Library/
+!Library/Application Support/
+!Library/Application Support/Code/
+!Library/Application Support/Code/User/
+!Library/Application\ Support/Code/User/settings.json
 
 # ignored hidden files
 .DS_Store

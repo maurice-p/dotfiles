@@ -1,0 +1,45 @@
+{
+    "editor.mouseWheelZoom":  true,
+    "editor.tabSize":  3,
+    "editor.guides.bracketPairs":  true,
+    "indentRainbow.errorColor":  "rgba(128,32,32,0.01)",
+    "indentRainbow.colors":  [
+                                 "rgba(255,255,64,0.1)",
+                                 "rgba(127,255,127,0.1)",
+                                 "rgba(255,127,255,0.1)",
+                                 "rgba(79,236,236,0.1)"
+                             ],
+    "workbench.colorTheme":  "Monokai",
+    "editor.fontLigatures":  false,
+    "editor.fontFamily":  "Comic Code, \u0027Regular\u0027, monospace",
+    "indentRainbow.ignoreLinePatterns":  [
+                                             "/[ \t]* [*]/g",
+                                             "/[ \t]+[/]{2}/g"
+                                         ],
+    "indentRainbow.indicatorStyle":  "light",
+    "indentRainbow.lightIndicatorStyleLineWidth":  3,
+    "cmake.configureOnOpen":  true,
+    "workbench.settings.applyToAllProfiles":  [
+                                                  "window.zoomLevel"
+                                              ],
+    "settingsSync.ignoredSettings":  [
+                                         "-window.zoomLevel"
+                                     ],
+    "editor.fontSize":  16,
+    "workbench.activityBar.location":  "top",
+    "workbench.startupEditor":  "none",
+    "terminal.integrated.commandsToSkipShell":  [
+                                                    "matlab.interrupt"
+                                                ],
+    "files.exclude":  {
+                          "**/asm_bk/**":  true,
+                          "**/bldc_akc/**":  true,
+                          "**/dcm_adk/**":  true,
+                          "**/generic_mk/**":  true,
+                          "**/psm_mk/output/*/delivery/**":  true,
+                          "**/psm_mk/**":  false,
+                          "**/mps_ebb/**":  true
+                    },
+                    "security.workspace.trust.untrustedFiles": "open",
+                    "makefile.configureOnOpen": true
+}
