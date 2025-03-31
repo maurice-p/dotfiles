@@ -11,6 +11,9 @@
 !.config/
 !.config/**
 
+# exception for VS Code settings
+!Library/Application Support/Code/User/settings.json
+
 # ignored hidden files
 .DS_Store
 .zsh_history
