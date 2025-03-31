@@ -3,6 +3,8 @@
 # make sure it's executable with:
 # chmod +x ~/.config/sketchybar/plugins/aerospace.sh
 
+# workspace name is icon eg. [q,w,e,r,..] and label is actual app symbol
+
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
   sketchybar --set $NAME background.color=0xFFecdbb2 label.shadow.drawing=on icon.shadow.drawing=on background.border_width=1
   sketchybar --set $NAME icon.color=0xFF3c3836 label.color=0xFF3c3836 
