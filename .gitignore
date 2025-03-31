@@ -1,26 +1,31 @@
-# Ignoriere alles
+# ignore everything
 *
 
-# Ausnahme für alle Unterverzeichnisse und versteckte Dateien
-!/**/
+# exception folders without the content inside the folders
+#!/**/
+
+# exception for all hidden files
 !.*
 
-# Nicht ignorierte Dateien und Ordner
+# exception for hidden folder and its content
 !.config/
 !.config/**
 
-# Weitere Ausschlüsse
+# ignored hidden files
 .DS_Store
-.vscode/
-.oh-my-zsh/
+.zsh_history
 
-# Ignoriere standardmäßige Benutzerverzeichnisse
-Desktop
-Documents
-Downloads
-Library
-Movies
-Music
-Pictures
-Public
-Workspace
+# ignored hidden folders
+#.vscode/
+#.oh-my-zsh/
+
+# ignored folders
+#Desktop
+#Documents
+#Downloads
+#Library
+#Movies
+#Music
+#Pictures
+#Public
+#Workspace
