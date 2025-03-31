@@ -6,9 +6,14 @@ after-startup-command = [
                         ]
 
 # Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+#exec-on-workspace-change = ['/bin/bash', '-c',
+#    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+#]
+
+
+exec-on-workspace-change = ['/bin/bash', '-c', 
+                            'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE && ~/.config/sketchybar/plugins/update_workspace_icons.sh'
+                           ]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -68,6 +73,12 @@ alt-w = 'focus down'
 alt-e = 'focus up'
 alt-r = 'focus right'
 
+ctrl-cmd-alt-q = 'focus left'
+ctrl-cmd-alt-w = 'focus down'
+ctrl-cmd-alt-e = 'focus up'
+ctrl-cmd-alt-r = 'focus right'
+
+
 ctrl-cmd-left = 'focus left'
 ctrl-cmd-down = 'focus down'
 ctrl-cmd-up = 'focus up'
@@ -78,6 +89,11 @@ alt-a = 'move left'
 alt-s = 'move down'
 alt-d = 'move up'
 alt-f = 'move right'
+
+ctrl-cmd-alt-a = 'move left'
+ctrl-cmd-alt-s = 'move down'
+ctrl-cmd-alt-d = 'move up'
+ctrl-cmd-alt-f = 'move right'
 
 ctrl-cmd-shift-left = 'move left'
 ctrl-cmd-shift-down = 'move down'
@@ -91,28 +107,28 @@ alt-z = 'resize smart -80'
 alt-x = 'resize smart +80'
 
 # workspaces
-ctrl-cmd-q = 'workspace 0'
-ctrl-cmd-w = 'workspace 1'
-ctrl-cmd-e = 'workspace 2'
-ctrl-cmd-r = 'workspace 3'
-ctrl-cmd-t = 'workspace 4'
-ctrl-cmd-a = 'workspace 5'
-ctrl-cmd-s = 'workspace 6'
-ctrl-cmd-d = 'workspace 7'
-ctrl-cmd-f = 'workspace 8'
-ctrl-cmd-g = 'workspace 9'
+ctrl-cmd-q = 'workspace 1'
+ctrl-cmd-w = 'workspace 2'
+ctrl-cmd-e = 'workspace 3'
+ctrl-cmd-r = 'workspace 4'
+ctrl-cmd-t = 'workspace 5'
+ctrl-cmd-a = 'workspace 6'
+ctrl-cmd-s = 'workspace 7'
+ctrl-cmd-d = 'workspace 8'
+ctrl-cmd-f = 'workspace 9'
+ctrl-cmd-g = 'workspace 10'
 
 # move workspace
-ctrl-cmd-shift-q = 'move-node-to-workspace 0'
-ctrl-cmd-shift-w = 'move-node-to-workspace 1'
-ctrl-cmd-shift-e = 'move-node-to-workspace 2'
-ctrl-cmd-shift-r = 'move-node-to-workspace 3'
-ctrl-cmd-shift-t = 'move-node-to-workspace 4'
-ctrl-cmd-shift-a = 'move-node-to-workspace 5'
-ctrl-cmd-shift-s = 'move-node-to-workspace 6'
-ctrl-cmd-shift-d = 'move-node-to-workspace 7'
-ctrl-cmd-shift-f = 'move-node-to-workspace 8'
-ctrl-cmd-shift-g = 'move-node-to-workspace 9'
+ctrl-cmd-shift-q = 'move-node-to-workspace 1'
+ctrl-cmd-shift-w = 'move-node-to-workspace 2'
+ctrl-cmd-shift-e = 'move-node-to-workspace 3'
+ctrl-cmd-shift-r = 'move-node-to-workspace 4'
+ctrl-cmd-shift-t = 'move-node-to-workspace 5'
+ctrl-cmd-shift-a = 'move-node-to-workspace 6'
+ctrl-cmd-shift-s = 'move-node-to-workspace 7'
+ctrl-cmd-shift-d = 'move-node-to-workspace 8'
+ctrl-cmd-shift-f = 'move-node-to-workspace 9'
+ctrl-cmd-shift-g = 'move-node-to-workspace 10'
 
 # open terminal
 ctrl-cmd-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
@@ -146,16 +162,16 @@ f = ['join-with right', 'mode main']
 
 
 [workspace-to-monitor-force-assignment]
-    0 = 'main'
     1 = 'main'
     2 = 'main'
     3 = 'main'
     4 = 'main'
-    5 = 'secondary'
+    5 = 'main'
     6 = 'secondary'
     7 = 'secondary'
     8 = 'secondary'
     9 = 'secondary'
+    10 = 'secondary'
 
 # windows that should float
 [[on-window-detected]]
@@ -168,41 +184,41 @@ run = 'layout floating'
 # W (VSCode)
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 2']
 
 # E (Remote)
 [[on-window-detected]]
 if.app-id = 'com.microsoft.rdc.macos'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 3']
 
 #[[on-window-detected]]
 #if.app-id = 'tv.jellyfin.player'
-#run = ['move-node-to-workspace 2']
+#run = ['move-node-to-workspace 3']
 
 # R (SmartGit)
 [[on-window-detected]]
 if.app-id = 'com.syntevo.smartgit'
-run = ['move-node-to-workspace 3']
+run = ['move-node-to-workspace 4']
 
 # T (KeePassXC)
 [[on-window-detected]]
 if.app-id = 'org.keepassxc.keepassxc'
-run = ['move-node-to-workspace 4']
+run = ['move-node-to-workspace 5']
 
 # D (Obsidian)
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = ['move-node-to-workspace 7']
+run = ['move-node-to-workspace 8']
 
 # F (Roon)
 [[on-window-detected]]
 if.app-id = 'com.roon.Roon'
-run = ['move-node-to-workspace 8']
+run = ['move-node-to-workspace 9']
 
 # G (Discord)
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace 9']
+run = ['move-node-to-workspace 10']
 
 
 
